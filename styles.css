@@ -1,0 +1,469 @@
+/* ===== سلوك التمرير السلس عند الضغط على الروابط ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== إعدادات عامة لكل الصفحة ===== */
+* {
+  margin: 0; /* إزالة الهوامش الافتراضية للعناصر */
+  padding: 0; /* إزالة الحواشي الافتراضية */
+  box-sizing: border-box; /* لجعل الحواف والحشوات لا تؤثر على الحجم */
+  font-family: "Poppins", sans-serif; /* تحديد الخط العام للموقع */
+}
+
+body {
+  background-color: #f8f8f8; /* لون خلفية الصفحة بالكامل */
+}
+
+/* ===== رأس الصفحة (Header) ===== */
+header {
+  width: 100%; /* يغطي العرض الكامل للصفحة */
+  height: 80px; /* ارتفاع الرأس */
+  background-color: none; /* خلفية بيضاء */
+   backdrop-filter: blur(10px); /* تأثير الضباب */
+  -webkit-backdrop-filter: blur(10px); /* دعم Safari */
+  display: flex; /* جعل العناصر (الشعار، القوائم، البحث) في سطر واحد */
+  justify-content: space-between; /* توزيع المسافات بين العناصر */
+  align-items: center; /* محاذاة عمودية في المنتصف */
+  padding: 0 40px; /* مسافة داخلية يمين ويسار */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* ظل خفيف أسفل الرأس */
+  position: sticky; /* يبقى الرأس ظاهر عند التمرير */
+  top: 0; /* تثبيته في الأعلى */
+  z-index: 1000; /* جعله فوق باقي العناصر */
+}
+
+/* ===== الشعار (Logo) ===== */
+.logo {
+  font-size: 35px; /* حجم الخط */
+  font-weight: 700; /* جعله عريض */
+  color: #9900ff; /* اللون الرئيسي */
+}
+
+/* اللون المختلف داخل الشعار */
+.logo span {
+  color: #000000; /* لون مميز للحرف أو الرقم */
+}
+
+/* ===== قائمة الروابط (Navigation Bar) ===== */
+nav ul {
+  display: flex; /* وضع الروابط بجانب بعض */
+  list-style: none; /* إزالة النقاط من القائمة */
+  gap: 25px; /* مسافة بين كل رابط */
+}
+
+/* تنسيق الروابط */
+nav ul li a {
+  text-decoration: none; /* إزالة الخط السفلي */
+  color: #333; /* لون النص */
+  font-weight: 500; /* سمك متوسط للخط */
+  transition: color 0.3s; /* تأثير ناعم عند التمرير */
+}
+
+/* تغيير اللون عند المرور بالماوس */
+nav ul li a:hover {
+  color: #9900ff; /* لون بنفسجي عند التمرير */
+}
+
+/* ===== صندوق البحث (Search Box) ===== */
+.search-box {
+  display: flex; /* وضع مربع النص والزر بجانب بعض */
+  align-items: center; /* محاذاة عمودية */
+  gap: 8px; /* مسافة بين المربع والزر */
+}
+
+/* مربع إدخال النص */
+.search-box input[type="text"] {
+  padding: 8px 12px; /* مسافة داخلية */
+  border: 1px solid #ccc; /* حدود رمادية */
+  border-radius: 5px; /* زوايا ناعمة */
+  font-size: 14px;
+  outline: none; /* إزالة الإطار الأزرق عند الكتابة */
+  transition: border-color 0.3s; /* تأثير عند التركيز */
+}
+
+/* تغيير لون الإطار عند الكتابة */
+.search-box input[type="text"]:focus {
+  border-color: #9900ff; /* بنفسجي عند الكتابة */
+}
+
+/* زر البحث */
+.search-btn {
+  background-color: #9900ff; /* خلفية بنفسجية */
+  color: white; /* نص أبيض */
+  border: none; /* بدون حدود */
+  border-radius: 5px; /* زوايا مستديرة */
+  padding: 8px 15px;
+  cursor: pointer; /* مؤشر اليد */
+  transition: background-color 0.3s; /* حركة ناعمة */
+}
+
+/* لون الزر عند تمرير الماوس */
+.search-btn:hover {
+  background-color: #7a00cc; /* أغمق قليلاً */
+}
+
+/* ===== القسم الرئيسي (Hero Section) ===== */
+.hero {
+  display: flex; /* الصورة والنص بجانب بعض */
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 100px;
+  gap: 40px; /* مسافة بين النص والصورة */
+}
+
+/* ===== النصوص في قسم الترحيب ===== */
+.content {
+  flex: 1; /* يأخذ نصف المساحة */
+  text-align: left; /* النصوص بمحاذاة لليسار */
+}
+
+.content h1 {
+  font-size: 60px;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.content h1 span {
+  color: #9900ff; /* لتلوين كلمة معينة */
+}
+
+.content p {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* ===== زر التحميل (Download Button) ===== */
+.download-btn {
+  background-color: none;
+  color: rgb(0, 0, 0);
+  padding: 12px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  display: inline-flex; /* الأيقونة والنص في نفس السطر */
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.download-btn:hover {
+  background-color: #555;
+  transform: scale(1.05); /* تكبير خفيف عند التمرير */
+}
+
+.download-btn .icon {
+  font-size: 10px;
+}
+
+/* ===== صورة قسم الترحيب ===== */
+.image-box {
+  flex: 1; /* النصف الآخر من العرض */
+  display: flex;
+  justify-content: center;
+  filter: drop-shadow(1px 1px 100px #9900ff);
+}
+
+.image-box img {
+  width: 700px;
+  border-radius: 10px; /* حواف ناعمة للصورة */
+}
+
+/* ===== التصميم المتجاوب (Responsive) ===== */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column; /* النص فوق الصورة */
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .image-box img {
+    max-width: 90%;
+  }
+
+  .content {
+    text-align: center;
+  }
+}
+
+/* ===== قسم من نحن (About Section) ===== */
+.about {
+  background-color: #dfdfdf;
+  padding: 80px 100px;
+}
+
+.about-container {
+  display: flex; /* الصورة والنص بجانب بعض */
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 12px;
+  filter: drop-shadow(1px 1px 100px #9900ff);
+}
+
+.about-text {
+  flex: 1;
+}
+
+.about-text h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.about-text h2 span {
+  color: #9900ff;
+}
+
+.about-text p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+/* ===== زر "Learn More" ===== */
+.learn-more-btn {
+  display: inline-block;
+  background-color: #9900ff;
+  color: white;
+  padding: 10px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.learn-more-btn:hover {
+  background-color: #7a00cc;
+  transform: scale(1.05);
+}
+
+/* ===== التصميم المتجاوب (للجوال) ===== */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column; /* الصورة فوق النص */
+    text-align: center;
+  }
+
+  .about-image img {
+    max-width: 90%;
+  }
+
+  .about-text {
+    text-align: center;
+  }
+}
+
+
+/* ===== قسم الخدمات (Services) ===== */
+.services {
+  background-color: #f8f8f8;
+  padding: 80px 100px;
+  text-align: center;
+}
+
+.services h2 {
+  font-size: 36px;
+  margin-bottom: 50px;
+  color: #222;
+}
+
+.services h2 span {
+  color: #9900ff;
+}
+
+/* ===== الصناديق ===== */
+.service-boxes {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+/* ===== كل بطاقة خدمة ===== */
+.service {
+  background: #fff;
+  padding: 40px 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 280px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.service:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(153, 0, 255, 0.3);
+}
+
+/* ===== الأيقونة ===== */
+.service i {
+  font-size: 40px;
+  color: #9900ff;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.service:hover i {
+  transform: rotate(10deg) scale(1.1);
+}
+
+.service h3 {
+  margin-bottom: 12px;
+  color: #222;
+  font-size: 20px;
+}
+
+.service p {
+  color: #555;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ===== التصميم المتجاوب ===== */
+@media (max-width: 768px) {
+  .services {
+    padding: 60px 20px;
+  }
+
+  .service {
+    width: 90%;
+  }
+}
+
+/* ===== قسم التواصل (Contact Section) ===== */
+.contact {
+  background-color: #dfdfdf;
+  padding: 80px 100px;
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+  color: #222;
+}
+
+.contact h2 span {
+  color: #9900ff;
+}
+
+/* ===== حاويات الحقول مع الأيقونات ===== */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.input-group {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+}
+
+.input-group i {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9900ff;
+  font-size: 18px;
+}
+
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  padding: 12px 15px 12px 45px; /* مساحة للأيقونة */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+  border-color: #9900ff;
+}
+
+/* ===== زر الإرسال ===== */
+.contact-form button {
+  background-color: #9900ff;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.contact-form button:hover {
+  background-color: #7a00cc;
+  transform: scale(1.05);
+}
+
+/* ===== التصميم المتجاوب ===== */
+@media (max-width: 768px) {
+  .contact {
+    padding: 60px 20px;
+  }
+}
+
+/* ===== التذييل (Footer) ===== */
+footer {
+  text-align: center;
+  padding: 30px 20px;
+  background-color: #222;
+  color: #fff;
+  font-size: 14px;
+}
+
+/* ===== روابط التواصل الاجتماعي (Social Media Links) ===== */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+.social-links a {
+  color: white;
+  font-size: 24px;
+  background-color: #9900ff;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+/* عند تمرير الماوس على الأيقونة */
+.social-links a:hover {
+  background-color: #7a00cc;
+  transform: scale(1.1); /* تكبير بسيط */
+}
+
+/* ===== تأثير الظهور عند التمرير ===== */
+section {
+  opacity: 0; /* مخفي بالبداية */
+  transform: translateY(60px); /* نازل للأسفل قليلاً */
+  transition: all 0.8s ease; /* حركة ناعمة */
+}
+
+/* عند ظهور القسم */
+section.show {
+  opacity: 1;
+  transform: translateY(0); /* يعود لمكانه الطبيعي */
+}
